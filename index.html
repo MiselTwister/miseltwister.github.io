@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #121212; color: #ffffff; }
+        header { padding: 5rem 2rem; text-align: center; background: linear-gradient(135deg, #6e8efb, #a777e3); }
+        header h1 { margin: 0; font-size: 3.5rem; }
+        header p { font-size: 1.2rem; margin-top: 1rem; opacity: 0.9; }
+        section { padding: 3rem 2rem; max-width: 800px; margin: auto; }
+        .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .project-card { background-color: #1e1e1e; padding: 1.5rem; border-radius: 8px; border: 1px solid #333; transition: transform 0.2s; }
+        .project-card:hover { transform: translateY(-5px); border-color: #a777e3; }
+        .project-card h3 { margin-top: 0; color: #a777e3; }
+        footer { text-align: center; padding: 2rem; border-top: 1px solid #333; margin-top: 2rem; }
+        a { color: #6e8efb; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hi, I'm [Your Name]</h1>
+        <p>A passionate creator building amazing things.</p>
+    </header>
+    
+    <section>
+        <h2>About Me</h2>
+        <p>I love creating clean, efficient, and beautiful web experiences. When I'm not coding, I'm exploring new technologies and improving my craft.</p>
+    </section>
+
+    <section>
+        <h2>My Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>A brief description of this awesome project and the technologies I used to build it.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>Another incredible project highlighting my problem-solving skills and design eye.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Let's connect! Find me on <a href="#">GitHub</a> or <a href="#">LinkedIn</a>.</p>
+    </footer>
+</body>
+</html>
