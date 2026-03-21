@@ -3,77 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomas | Portfolio</title>
+    <title>Tomas | Creative Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Smooth transitions for the easter egg */
-        body, header { transition: all 0.5s ease-in-out; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.5s ease; }
+        .glass { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .bg-mesh {
+            background-color: #030712;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(126, 34, 206, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-300 font-sans antialiased selection:bg-purple-500 selection:text-white" id="main-body">
+<body class="bg-mesh text-gray-300 antialiased selection:bg-purple-500/30" id="main-body">
 
-    <header id="main-header" class="relative overflow-hidden py-24 sm:py-32 bg-gray-900 border-b border-gray-800">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-gradient-to-b from-purple-500/10 to-transparent blur-3xl pointer-events-none"></div>
-        
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
-                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Tomas</span>
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-5xl mx-auto flex justify-between items-center glass rounded-2xl px-6 py-3">
+            <span class="text-white font-extrabold tracking-tighter text-xl">T<span class="text-purple-500">.</span></span>
+            <div class="space-x-8 text-sm font-medium">
+                <a href="https://github.com/MiselTwister" class="hover:text-white transition-colors">GitHub</a>
+                <a href="#" class="bg-white text-black px-4 py-2 rounded-xl hover:bg-purple-500 hover:text-white transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="main-header" class="relative pt-44 pb-32 px-6 overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 glass rounded-full text-xs font-bold tracking-widest text-purple-400 uppercase">
+                Available for new projects
+            </div>
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight text-white mb-8 leading-[1.1]">
+                Creative <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400">Developer</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto">
-                A passionate creator building amazing things<span id="egg" class="cursor-pointer select-none text-purple-500 hover:text-purple-400 font-bold">.</span>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Hi, I'm Tomas. I build high-performance web systems with a focus on clean code and interactive UI<span id="egg" class="cursor-pointer select-none text-purple-500 font-bold">.</span>
             </p>
         </div>
-    </header>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] animate-float"></div>
+    </section>
     
-    <main class="max-w-5xl mx-auto px-6 py-16 space-y-24">
+    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-8">
         
-        <section class="text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-6 flex items-center justify-center">
-                <span class="text-purple-500 mr-3">👋</span> About Me
-            </h2>
-            <p class="text-lg text-gray-400 leading-relaxed">
-                I love creating clean, efficient, and beautiful web experiences. When I'm not coding, I'm exploring new technologies and pushing my craft to the next level. Every detail matters.
-            </p>
-        </section>
-
-        <section>
-            <h2 class="text-3xl font-bold text-white mb-10 flex items-center justify-center md:justify-start">
-                <span class="text-purple-500 mr-3">💻</span> Featured Work
-            </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="group bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(168,85,247,0.15)] flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">SimNation Radio Command Center</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">A high-performance, dynamic staff dashboard engineered with Vue 3 and Tailwind CSS for scheduling live radio broadcasts.</p>
-                    </div>
-                    <a href="simnation.html" class="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors">
-                        Read the Case Study 
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
+            <div class="md:col-span-2 glass p-10 rounded-[2rem] flex flex-col justify-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Crafting digital excellence</h2>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    I specialize in Vue 3, Tailwind, and high-performance dashboards. I don't just write code; I architect experiences that feel fluid and fast.
+                </p>
+            </div>
 
-                <div class="group bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)] flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Project Two</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">Another incredible project highlighting my problem-solving skills, modern architecture decisions, and design eye.</p>
+            <div class="glass p-8 rounded-[2rem] bg-gradient-to-br from-purple-900/20 to-transparent">
+                <div class="text-5xl font-extrabold text-white mb-2">2026</div>
+                <div class="text-purple-400 font-bold uppercase tracking-widest text-xs">Current Portfolio Year</div>
+                <div class="mt-8 space-y-3">
+                    <div class="flex justify-between text-sm"><span class="text-gray-500">Frontend</span><span class="text-white">99%</span></div>
+                    <div class="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-purple-500 h-full w-[99%]"></div>
                     </div>
-                    <a href="#" class="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors">
-                        Coming Soon
-                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
                 </div>
             </div>
-        </section>
 
+            <div class="md:col-span-3 group relative glass rounded-[2rem] overflow-hidden hover:border-purple-500/50 transition-all duration-500">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-10 flex flex-col justify-center">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs font-bold text-emerald-500 uppercase">Live Project</span>
+                        </div>
+                        <h3 class="text-4xl font-bold text-white mb-4">SimNation Radio</h3>
+                        <p class="text-gray-400 mb-8 text-lg leading-relaxed">
+                            An engineered staff dashboard for 24/7 broadcast scheduling. Features a custom JS date engine and high-density UI components.
+                        </p>
+                        <a href="simnation.html" class="inline-flex items-center text-white font-bold group-hover:text-purple-400 transition-colors">
+                            Explore Case Study 
+                            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                    <div class="bg-gray-800/50 relative overflow-hidden h-[300px] md:h-full">
+                        <img src="https://i.imgur.com/oRNpaG7.png" class="absolute inset-0 w-full h-full object-cover object-left-top opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Dashboard Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-[2rem] group hover:bg-white/5 transition-all">
+                <h4 class="text-xl font-bold text-white mb-2">Project Two</h4>
+                <p class="text-gray-500 text-sm mb-6">Advanced problem solving and modern system architecture.</p>
+                <div class="h-32 bg-gray-950 rounded-xl mb-4 border border-white/5 overflow-hidden">
+                    <div class="p-4 flex gap-2">
+                        <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                        <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                    </div>
+                </div>
+                <a href="#" class="text-sm font-bold text-blue-400">Coming Soon</a>
+            </div>
+
+            <div class="md:col-span-2 glass p-8 rounded-[2rem] flex items-center justify-between group cursor-pointer hover:border-white/20">
+                <div>
+                    <h4 class="text-2xl font-bold text-white mb-1">Open Source</h4>
+                    <p class="text-gray-400">View my latest commits and repositories on GitHub.</p>
+                </div>
+                <a href="https://github.com/MiselTwister" class="w-16 h-16 glass rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
+        </div>
     </main>
 
-    <footer class="text-center py-10 border-t border-gray-900 bg-gray-950 mt-12">
-        <p class="text-gray-500 mb-4">Let's connect and build something great.</p>
-        <div class="flex justify-center space-x-6">
-            <a href="https://github.com/MiselTwister" class="text-gray-400 hover:text-white transition-colors font-semibold">GitHub</a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors font-semibold">LinkedIn</a>
-        </div>
+    <footer class="max-w-5xl mx-auto px-6 py-12 text-center border-t border-white/5">
+        <p class="text-gray-500 font-medium tracking-widest uppercase text-[10px]">&copy; 2026 Designed & Built by Tomas</p>
     </footer>
 
     <script>
@@ -84,20 +129,14 @@
 
         eggTrigger.addEventListener('click', () => {
             clickCount++;
-            
             if (clickCount === 3) {
-                // Trigger the easter egg
-                alert('🥚 You found the secret! You truly are searching good!');
-                
-                // Override the Tailwind classes with retro inline styles
-                body.className = ''; // clear tailwind classes for the body
-                body.style.backgroundColor = '#2d0a31';
-                body.style.color = '#00ffcc';
-                
-                header.className = 'py-24 sm:py-32 text-center'; // keep some spacing
-                header.style.background = 'linear-gradient(135deg, #ff007f, #7928ca)';
-                
-                // Reset clicks
+                alert('🥚 GLITCH MODE ACTIVATED');
+                body.className = ''; 
+                body.style.backgroundColor = '#000';
+                body.style.color = '#0f0';
+                body.style.fontFamily = 'monospace';
+                document.querySelectorAll('.glass').forEach(el => el.style.borderColor = '#0f0');
+                header.style.background = '#000';
                 clickCount = 0; 
             }
         });
