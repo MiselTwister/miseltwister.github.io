@@ -3,60 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Tomas | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #121212; color: #ffffff; transition: all 0.5s ease; }
-        header { padding: 5rem 2rem; text-align: center; background: linear-gradient(135deg, #6e8efb, #a777e3); transition: all 0.5s ease; }
-        header h1 { margin: 0; font-size: 3.5rem; }
-        header p { font-size: 1.2rem; margin-top: 1rem; opacity: 0.9; }
-        section { padding: 3rem 2rem; max-width: 800px; margin: auto; }
-        .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .project-card { background-color: #1e1e1e; padding: 1.5rem; border-radius: 8px; border: 1px solid #333; transition: transform 0.2s, border-color 0.2s; }
-        .project-card:hover { transform: translateY(-5px); border-color: #a777e3; }
-        .project-card h3 { margin-top: 0; color: #a777e3; }
-        footer { text-align: center; padding: 2rem; border-top: 1px solid #333; margin-top: 2rem; transition: border-color 0.5s ease; }
-        a { color: #6e8efb; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
-        
-        /* Secret egg styling */
-        .secret-trigger { cursor: pointer; user-select: none; }
+        /* Smooth transitions for the easter egg */
+        body, header { transition: all 0.5s ease-in-out; }
     </style>
 </head>
-<body>
-    <header id="main-header">
-        <h1>Hi, I'm Tomas</h1>
-        <p>A passionate creator building amazing things<span id="egg" class="secret-trigger">.</span></p>
+<body class="bg-gray-950 text-gray-300 font-sans antialiased selection:bg-purple-500 selection:text-white" id="main-body">
+
+    <header id="main-header" class="relative overflow-hidden py-24 sm:py-32 bg-gray-900 border-b border-gray-800">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-gradient-to-b from-purple-500/10 to-transparent blur-3xl pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
+                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Tomas</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto">
+                A passionate creator building amazing things<span id="egg" class="cursor-pointer select-none text-purple-500 hover:text-purple-400 font-bold">.</span>
+            </p>
+        </div>
     </header>
     
-    <section>
-        <h2>About Me</h2>
-        <p>I love creating clean, efficient, and beautiful web experiences. When I'm not coding, I'm exploring new technologies and improving my craft.</p>
-    </section>
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-24">
+        
+        <section class="text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-6 flex items-center justify-center">
+                <span class="text-purple-500 mr-3">👋</span> About Me
+            </h2>
+            <p class="text-lg text-gray-400 leading-relaxed">
+                I love creating clean, efficient, and beautiful web experiences. When I'm not coding, I'm exploring new technologies and pushing my craft to the next level. Every detail matters.
+            </p>
+        </section>
 
-    <section>
-        <h2>My Projects</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3>SimNation Radio Command Center</h3>
-                <p>A high-performance, dynamic staff dashboard engineered with Vue 3 and Tailwind CSS for scheduling live radio broadcasts.</p>
-                <br>
-                <a href="simnation.html">Read the Case Study &rarr;</a>
+        <section>
+            <h2 class="text-3xl font-bold text-white mb-10 flex items-center justify-center md:justify-start">
+                <span class="text-purple-500 mr-3">💻</span> Featured Work
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="group bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(168,85,247,0.15)] flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">SimNation Radio Command Center</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">A high-performance, dynamic staff dashboard engineered with Vue 3 and Tailwind CSS for scheduling live radio broadcasts.</p>
+                    </div>
+                    <a href="simnation.html" class="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300 transition-colors">
+                        Read the Case Study 
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <div class="group bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)] flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">Project Two</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">Another incredible project highlighting my problem-solving skills, modern architecture decisions, and design eye.</p>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors">
+                        Coming Soon
+                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Project Two</h3>
-                <p>Another incredible project highlighting my problem-solving skills and design eye.</p>
-            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-10 border-t border-gray-900 bg-gray-950 mt-12">
+        <p class="text-gray-500 mb-4">Let's connect and build something great.</p>
+        <div class="flex justify-center space-x-6">
+            <a href="https://github.com/MiselTwister" class="text-gray-400 hover:text-white transition-colors font-semibold">GitHub</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors font-semibold">LinkedIn</a>
         </div>
-    </section>
-
-    <footer>
-        <p>Let's connect! Find me on <a href="https://github.com/MiselTwister">GitHub</a> or <a href="#">LinkedIn</a>.</p>
     </footer>
 
     <script>
         let clickCount = 0;
         const eggTrigger = document.getElementById('egg');
-        const body = document.body;
+        const body = document.getElementById('main-body');
         const header = document.getElementById('main-header');
 
         eggTrigger.addEventListener('click', () => {
@@ -64,14 +87,17 @@
             
             if (clickCount === 3) {
                 // Trigger the easter egg
-                alert('🥚 You found the secret! You truly are building this the PRO WAY!');
+                alert('🥚 You found the secret! You truly are searching good!');
                 
-                // Change the theme to a crazy retro color palette
+                // Override the Tailwind classes with retro inline styles
+                body.className = ''; // clear tailwind classes for the body
                 body.style.backgroundColor = '#2d0a31';
                 body.style.color = '#00ffcc';
+                
+                header.className = 'py-24 sm:py-32 text-center'; // keep some spacing
                 header.style.background = 'linear-gradient(135deg, #ff007f, #7928ca)';
                 
-                // Reset clicks so they can trigger it again if they refresh
+                // Reset clicks
                 clickCount = 0; 
             }
         });
