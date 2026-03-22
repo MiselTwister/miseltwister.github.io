@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MidNightAI | The Future is Midnight</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050810; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .indigo-glow { box-shadow: 0 0 50px -12px rgba(79, 70, 229, 0.5); }
+        .mesh-gradient {
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
+        }
+        .text-glow { text-shadow: 0 0 30px rgba(79, 70, 229, 0.6); }
+    </style>
+</head>
+<body class="mesh-gradient text-gray-300 antialiased selection:bg-indigo-500/30">
+
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-2xl px-6 py-3">
+            <a href="index.html" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-bold transition-all uppercase tracking-tighter">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Portfolio
+            </a>
+            <div class="hidden md:flex space-x-6 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">
+                <span>Laravel 11</span>
+                <span>Vue 3</span>
+                <span>Groq LPU</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-56 pb-32 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10 text-center">
+            <h1 class="text-6xl md:text-9xl font-extrabold text-white tracking-tighter mb-6 uppercase italic">
+                THE FUTURE IS <span class="text-indigo-500 text-glow">MIDNIGHT</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 font-medium">
+                A high-performance AI workstation built with <span class="text-white">Laravel 11</span>, <span class="text-white">Vue 3</span>, and <span class="text-white">Groq LPU inference</span>.
+            </p>
+            
+            <div class="relative max-w-5xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl indigo-glow group">
+                <div class="absolute inset-0 bg-indigo-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="bg-gray-900/90 px-4 py-3 flex items-center border-b border-white/5">
+                    <div class="flex space-x-2">
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
+                    </div>
+                </div>
+                <img src="https://i.imgur.com/7c5xd6S.png" alt="MidNightAI Dashboard" class="w-full h-auto opacity-90 group-hover:opacity-100 transition-all duration-700">
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-32 pb-32">
+
+        <section>
+            <h2 class="text-xs font-bold text-indigo-500 uppercase tracking-[0.4em] mb-12 text-center">Engineered Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="glass p-6 rounded-2xl text-center hover:border-indigo-500/50 transition-colors">
+                    <span class="block text-white font-bold uppercase text-xs">Laravel 11</span>
+                </div>
+                <div class="glass p-6 rounded-2xl text-center hover:border-indigo-500/50 transition-colors">
+                    <span class="block text-white font-bold uppercase text-xs">Vue 3 (Inertia)</span>
+                </div>
+                <div class="glass p-6 rounded-2xl text-center hover:border-indigo-500/50 transition-colors">
+                    <span class="block text-white font-bold uppercase text-xs">Tailwind CSS</span>
+                </div>
+                <div class="glass p-6 rounded-2xl text-center hover:border-indigo-500/50 transition-colors">
+                    <span class="block text-white font-bold uppercase text-xs">MySQL</span>
+                </div>
+                <div class="glass p-6 rounded-2xl text-center hover:border-indigo-500/50 transition-colors">
+                    <span class="block text-white font-bold uppercase text-xs">Groq API</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass p-10 rounded-[2.5rem] group hover:bg-white/[0.02] transition-all">
+                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-8">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 uppercase italic">Insane Speed</h3>
+                <p class="text-gray-400 leading-relaxed">Powered by <span class="text-indigo-400 font-bold">Groq LPU (Language Processing Unit)</span> for near-instant AI responses. Sub-second token generation for real-time creative flow.</p>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] group hover:bg-white/[0.02] transition-all border-l-4 border-l-indigo-500">
+                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-8">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 00-2 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 uppercase italic">Fortress Security</h3>
+                <p class="text-gray-400 leading-relaxed">Integrated <span class="text-indigo-400 font-bold">2FA (MFA) protection</span> via Laravel Fortify. As a White Hat, I ensured that every neural prompt and account is hardened against unauthorized access.</p>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] group hover:bg-white/[0.02] transition-all">
+                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-8">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 uppercase italic">Smart Persistence</h3>
+                <p class="text-gray-400 leading-relaxed">Full conversation history with MySQL-backed memory. Intelligent session handling that recalls context without compromising performance.</p>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] group hover:bg-white/[0.02] transition-all">
+                <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-8">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 uppercase italic">Professional UX</h3>
+                <p class="text-gray-400 leading-relaxed">Beautifully rendered Markdown with support for complex tables, math equations, and syntax-highlighted code blocks for developers.</p>
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto">
+            <h2 class="text-center text-4xl font-extrabold text-white mb-16 uppercase italic">The Neural Pipeline</h2>
+            <div class="relative border-l-2 border-indigo-500/20 ml-6 space-y-12">
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-indigo-500 shadow-[0_0_15px_rgba(79,70,229,0.8)]"></div>
+                    <h4 class="text-white font-extrabold uppercase mb-2">01. Secure Authentication</h4>
+                    <p class="text-gray-500 text-sm">Identity verified via Laravel Fortify with mandatory 2FA checks.</p>
+                </div>
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-indigo-500 shadow-[0_0_15px_rgba(79,70,229,0.8)]"></div>
+                    <h4 class="text-white font-extrabold uppercase mb-2">02. Neural Brain</h4>
+                    <p class="text-gray-500 text-sm">Input processed through the Groq LPU for high-fidelity, high-speed inference.</p>
+                </div>
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-indigo-500 shadow-[0_0_15px_rgba(79,70,229,0.8)]"></div>
+                    <h4 class="text-white font-extrabold uppercase mb-2">03. Persistent Memory</h4>
+                    <p class="text-gray-500 text-sm">Output hydrated and archived in MySQL for session-long context recall.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass p-12 rounded-[3rem] bg-gradient-to-br from-indigo-500/5 to-transparent border-white/5">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-bold text-white mb-6 uppercase italic tracking-tight">The Pro Deployment</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        I utilize a high-fidelity CI/CD workflow to ensure zero-downtime updates. This project lives on a hardened <span class="text-white">Plesk</span> environment, synced directly from <span class="text-white">GitHub</span> via automated webhooks.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-[10px] font-bold text-indigo-400 bg-indigo-400/10 px-3 py-1 rounded border border-indigo-400/20">GITHUB PUSH</span>
+                        <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        <span class="text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded border border-emerald-400/20">PLESK LIVE</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="w-full h-48 bg-gray-950 rounded-2xl border border-white/5 shadow-inner flex items-center justify-center p-8">
+                        <code class="text-xs text-indigo-400/70 font-mono">
+                            git push origin main <br>
+                            > deployment hook triggered... <br>
+                            > migrating database... <br>
+                            > assets compiled. <br>
+                            <span class="text-emerald-400">> Production is now live.</span>
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-16 text-center border-t border-white/5 bg-gray-950/30">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-left">
+                <p class="text-white font-extrabold uppercase italic tracking-widest mb-2">Tomas <span class="text-indigo-500">.</span></p>
+                <p class="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em]">White Hat Architect & Product Engineer</p>
+            </div>
+            <div class="flex space-x-12">
+                <a href="https://github.com/MiselTwister" class="text-xs font-bold uppercase tracking-widest hover:text-indigo-400 transition-colors">GitHub</a>
+                <a href="#" class="text-xs font-bold uppercase tracking-widest hover:text-indigo-400 transition-colors">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
