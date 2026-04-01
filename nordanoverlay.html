@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordan VTC Telemetry Overlay | Tomas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.5s ease; }
+        .glass { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .bg-mesh {
+            background-color: #030712;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh text-gray-300 antialiased selection:bg-emerald-500/30">
+
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-5xl mx-auto flex justify-between items-center glass rounded-2xl px-6 py-3">
+            <a href="index.html" class="flex items-center text-sm font-bold text-gray-400 hover:text-white transition-colors group">
+                <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Back to Portfolio
+            </a>
+            <span class="text-white font-extrabold tracking-tighter text-xl">T<span class="text-emerald-500">.</span></span>
+        </div>
+    </nav>
+
+    <header class="relative pt-44 pb-20 px-6 overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 mb-6 glass rounded-full text-xs font-bold tracking-widest text-emerald-400 uppercase">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Desktop Application</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+                Nordan VTC <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-400">Telemetry Overlay</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl leading-relaxed">
+                A high-performance, real-time Heads-Up Display (HUD) engineered for Euro Truck Simulator 2 and American Truck Simulator, built to deliver zero-latency physics data directly to the driver's screen.
+            </p>
+        </div>
+    </header>
+    
+    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 glass p-10 rounded-[2rem]">
+                <h2 class="text-2xl font-bold text-white mb-4">Project Overview</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    Built the pro way for our Virtual Trucking Company drivers, this application intercepts live physics and telemetry data directly from the game engine’s memory and renders it over the game window. It features a dual-window architecture: an invisible, borderless, click-through HUD that overlays the simulator, and an interactive "Command Center" for real-time visual customization.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    To ensure a completely seamless user experience, I engineered a stealth auto-hide mechanism. The application actively monitors game time loops—meaning the overlay part shows exactly when you are in the truck driving, and instantly vanishes the moment the game is paused or closed, keeping the desktop entirely clutter-free.
+                </p>
+            </div>
+
+            <div class="glass p-10 rounded-[2rem] flex flex-col justify-center">
+                <h3 class="text-sm font-bold tracking-widest text-gray-500 uppercase mb-6">Core Technologies</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-sm font-semibold text-emerald-400 rounded-lg">Rust</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-sm font-semibold text-teal-400 rounded-lg">Tauri v2</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-sm font-semibold text-green-400 rounded-lg">Vue.js 3</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-sm font-semibold text-blue-400 rounded-lg">C++ SDK</span>
+                    <span class="px-3 py-1.5 bg-white/5 border border-white/10 text-sm font-semibold text-gray-300 rounded-lg">CSS3 / HTML5</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold text-white mb-6">Interface Preview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass rounded-[2rem] overflow-hidden group border border-white/5 hover:border-emerald-500/50 transition-all duration-500">
+                    <div class="bg-gray-800/50 relative h-[300px] md:h-[400px]">
+                        <img src="https://i.imgur.com/vx98dnH.png" alt="Command Center Interface" class="absolute inset-0 w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                </div>
+                <div class="glass rounded-[2rem] overflow-hidden group border border-white/5 hover:border-emerald-500/50 transition-all duration-500">
+                    <div class="bg-gray-800/50 relative h-[300px] md:h-[400px]">
+                        <img src="https://i.imgur.com/3lWeadS.png" alt="In-Game Overlay HUD" class="absolute inset-0 w-full h-full object-cover object-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h2 class="text-3xl font-bold text-white mb-8">Key Features & Engineering</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="glass p-8 rounded-[2rem] hover:border-emerald-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Direct Memory Access</h4>
+                    <p class="text-gray-400 leading-relaxed">
+                        Engineered a low-level Rust loop utilizing the Win32 API to read raw memory addresses from the <code class="text-emerald-300 bg-emerald-900/30 px-1 rounded text-sm">Local\SCSTelemetry</code> mapped file. Extracts raw byte data (speed, RPM, damage arrays) with absolute zero latency, dynamically converting m/s to precise KM/H and MPH readouts.
+                    </p>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] hover:border-emerald-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Time-Freeze Detection</h4>
+                    <p class="text-gray-400 leading-relaxed">
+                        Implemented a robust algorithmic check in Rust that strictly monitors the game engine's internal clock. If the clock stops updating, the system immediately recognizes a paused or minimized state, triggering the overlay to automatically vanish.
+                    </p>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] hover:border-emerald-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Transparent & Borderless Windowing</h4>
+                    <p class="text-gray-400 leading-relaxed">
+                        Manipulated OS-level window flags via Tauri's capabilities to forge a floating, shadowless, edge-to-edge transparent canvas. It seamlessly overlays the DirectX game window without capturing rogue mouse clicks, maintaining native gameplay flow.
+                    </p>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] hover:border-emerald-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Dynamic UI Logic & Persistence</h4>
+                    <p class="text-gray-400 leading-relaxed">
+                        Designed a hypercar-inspired Vue 3 frontend featuring segmented fuel-range visualizers and a dynamic shift-light cluster calculating percentage-based RPM thresholds. A seamless LocalStorage system instantly caches user preferences, custom X/Y coordinates, and theme arrays directly to disk.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto px-6 py-12 text-center border-t border-white/5">
+        <p class="text-gray-500 font-medium tracking-widest uppercase text-[10px]">&copy; 2026 Designed & Built by Tomas</p>
+    </footer>
+
+</body>
+</html>
