@@ -1,176 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SimNation Command Center | Technical Case Study</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .bg-mesh {
-            background-color: #030712;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(126, 34, 206, 0.08) 0px, transparent 50%);
-        }
-        .text-gradient { background: linear-gradient(to r, #fb923c, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.className+=' js';</script>
+
+<title>SimNation Radio — broadcast scheduling dashboard | Tomas</title>
+<meta name="description" content="An archived project: the staff dashboard that ran scheduling for SimNation Radio, built on Laravel and Vue with a hand-written date engine over AzuraCast.">
+<link rel="canonical" href="https://miseltwister.github.io/simnation.html">
+<meta name="theme-color" content="#070809">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23070809'/%3E%3Crect x='11' y='11' width='10' height='10' rx='2' fill='%23ffb043'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://miseltwister.github.io/simnation.html">
+<meta property="og:title" content="SimNation Radio — broadcast scheduling dashboard">
+<meta property="og:description" content="An archived project: the staff dashboard that ran scheduling for SimNation Radio, built on Laravel and Vue over AzuraCast.">
+<meta property="og:image" content="https://miseltwister.github.io/images/staffdashboard.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://miseltwister.github.io/images/staffdashboard.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-mesh text-gray-300 antialiased selection:bg-orange-500/30">
+<body>
 
-    <nav class="fixed top-0 w-full z-50 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center glass rounded-2xl px-6 py-3">
-            <a href="index.html" class="inline-flex items-center text-orange-400 hover:text-orange-300 font-bold transition-all">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                Portfolio
-            </a>
-            <div class="flex items-center space-x-4">
-                <span class="text-[10px] font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded uppercase tracking-widest">System Online</span>
-            </div>
-        </div>
-    </nav>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="relative pt-44 pb-20 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="mb-6 flex items-center space-x-3">
-                <span class="h-px w-12 bg-orange-500"></span>
-                <span class="text-orange-500 font-bold tracking-widest uppercase text-xs">Technical Deep Dive</span>
-            </div>
-            <h1 class="text-6xl md:text-8xl font-extrabold text-white tracking-tighter mb-8 leading-[0.9]">
-                The Broadcast <br><span class="text-gradient">Command Center</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-400 max-w-4xl mb-10 leading-relaxed">
-                A high-performance radio ecosystem. I architected a custom 24/7 scheduling engine balanced with an enterprise-grade security fortress.
-            </p>
-            <div class="flex flex-wrap gap-3">
-                <span class="glass px-4 py-2 rounded-xl text-xs font-bold text-orange-400 border-orange-500/20 uppercase tracking-wider flex items-center">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    White Hat Developer
-                </span>
-                <span class="glass px-4 py-2 rounded-xl text-xs font-bold text-gray-400 border-white/10 uppercase tracking-wider">Cybersecurity Advocate</span>
-            </div>
-        </div>
-    </header>
+<nav class="site-nav" aria-label="Main">
+  <div class="wrap site-nav__inner">
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      All work
+    </a>
+    <a class="wordmark" href="index.html">Tomas<span>.</span></a>
+  </div>
+</nav>
 
-    <main class="max-w-6xl mx-auto px-6 pb-24 space-y-24">
-        
-        <section class="space-y-8">
-            <div class="glass rounded-[2.5rem] overflow-hidden border-white/10 shadow-2xl group">
-                <div class="bg-gray-900/80 px-6 py-4 flex items-center border-b border-white/5">
-                    <div class="flex space-x-2 mr-6">
-                        <div class="w-3 h-3 rounded-full bg-red-500/20"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/20"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500/20"></div>
-                    </div>
-                    <div class="text-[10px] font-mono text-gray-500 uppercase">SimNation_Staff_Panel_v3.0</div>
-                </div>
-                <img src="images/staffdashboard.png" class="w-full opacity-90 group-hover:opacity-100 transition-opacity duration-700" alt="Full Staff Dashboard">
-            </div>
-        </section>
+<header class="wrap case-hero">
+  <div class="glow case-hero__glow case-hero__glow--off"></div>
+  <span class="status status--off">Archived</span>
+  <h1>SimNation Radio</h1>
+  <p class="case-hero__lede">
+    The staff dashboard behind a 24-hour online radio station. Presenters booked
+    their shows on a full week grid, and the schedule went straight to AzuraCast
+    without anyone editing a spreadsheet.
+  </p>
 
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="md:col-span-2 glass p-10 rounded-[2.5rem]">
-                <h3 class="text-3xl font-bold text-white mb-6">The Elite Timetable Grid</h3>
-                <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                    The heart of the panel is a custom-built 24/7 engine. I moved away from cramped legacy designs to a strict <strong>60px Golden Ratio</strong> vertical scale, providing perfect "breathing room" for metadata.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="glass p-6 rounded-2xl bg-white/5">
-                        <span class="text-orange-500 font-bold block mb-2">Dynamic Date Engine</span>
-                        <p class="text-xs text-gray-500 leading-relaxed">Custom JS engine calculating exact calendar dates based on week/year pagination.</p>
-                    </div>
-                    <div class="glass p-6 rounded-2xl bg-white/5">
-                        <span class="text-orange-500 font-bold block mb-2">Pixel-Perfect Mapping</span>
-                        <p class="text-xs text-gray-500 leading-relaxed">Math-based conversion of 24h strings into exact Y-axis coordinates.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="glass p-8 rounded-[2.5rem] relative overflow-hidden group">
-                <div class="absolute inset-0 bg-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <h4 class="text-white font-bold mb-4 uppercase tracking-widest text-xs">UI Detail</h4>
-                <img src="images/timetable.png" class="rounded-xl border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-500" alt="Grid Detail">
-                <p class="mt-6 text-sm text-gray-400 leading-relaxed">
-                    Interactive "Glass" slots featuring inner glows and slide-in action triggers.
-                </p>
-            </div>
-        </section>
+  <p class="notice">
+    SimNation Radio has closed and the dashboard is no longer running. This page
+    is kept as a record of how it was built.
+  </p>
 
-        <section class="glass p-12 rounded-[3rem] border-red-500/10 bg-gradient-to-br from-red-900/5 to-transparent">
-            <div class="flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/3">
-                    <div class="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h2 class="text-4xl font-extrabold text-white mb-4 leading-tight">Hardened <br>Infrastructure</h2>
-                    <p class="text-red-400 font-bold uppercase tracking-widest text-xs">Privacy-First Architecture</p>
-                </div>
-                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="text-white font-bold mb-2 flex items-center"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span> Ethical Security</h4>
-                        <p class="text-sm text-gray-500 leading-relaxed">As a White Hat developer, I proactively audit code for vulnerabilities to fix them before they can be exploited.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-bold mb-2 flex items-center"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span> CSRF & XSS Shield</h4>
-                        <p class="text-sm text-gray-500 leading-relaxed">Automated request protection and sanitization of show titles/DJ data to prevent injection attacks.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-bold mb-2 flex items-center"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span> Zero-Leak Hydration</h4>
-                        <p class="text-sm text-gray-500 leading-relaxed">Smart data loading ensures sensitive staff IDs are never exposed in the source code or DOM.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-bold mb-2 flex items-center"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></span> Protection & Safety</h4>
-                        <p class="text-sm text-gray-500 leading-relaxed">Committed to protecting staff from cyberattacks and password leaks through rigorous encryption and access control.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <dl class="facts">
+    <div class="facts__row">
+      <dt class="facts__key">Type</dt>
+      <dd class="facts__val">Internal web dashboard</dd>
+    </div>
+    <div class="facts__row">
+      <dt class="facts__key">Built for</dt>
+      <dd class="facts__val">Station staff and show presenters</dd>
+    </div>
+    <div class="facts__row">
+      <dt class="facts__key">Stack</dt>
+      <dd class="facts__val">Laravel, Vue 3, Inertia.js, AzuraCast API</dd>
+    </div>
+    <div class="facts__row">
+      <dt class="facts__key">Status</dt>
+      <dd class="facts__val">Archived, the station has closed</dd>
+    </div>
+  </dl>
+</header>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass p-10 rounded-[2.5rem] bg-gradient-to-br from-blue-500/5 to-transparent">
-                <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-4">Performance</h4>
-                <h3 class="text-2xl font-bold text-white mb-4 italic">The Chameleon UI</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">
-                    Using <strong>clamp() typography</strong>, the dashboard expands from a 1080p laptop view into a high-density command center on 4K ultrawide monitors.
-                </p>
-            </div>
-            
-            <div class="md:col-span-2 glass p-10 rounded-[2.5rem]">
-                <h4 class="text-purple-400 font-bold uppercase tracking-widest text-xs mb-4">Infrastructure</h4>
-                <h3 class="text-2xl font-bold text-white mb-4">Shared Directory Architecture</h3>
-                <p class="text-gray-500 text-lg leading-relaxed mb-6">
-                    To keep development <strong>"PRO,"</strong> the Staff Panel and Frontend live in a unified directory, allowing for shared assets and lightning-fast deployment.
-                </p>
-                <div class="flex flex-wrap gap-3">
-                    <span class="glass px-3 py-1 rounded-lg text-[10px] font-bold text-white uppercase border-white/5">Vue 3 Composition API</span>
-                    <span class="glass px-3 py-1 rounded-lg text-[10px] font-bold text-white uppercase border-white/5">Inertia.js SPA</span>
-                    <span class="glass px-3 py-1 rounded-lg text-[10px] font-bold text-white uppercase border-white/5">Tailwind CSS</span>
-                </div>
-            </div>
-        </div>
+<main id="main">
 
-        <section class="glass p-12 rounded-[3rem] text-center md:text-left bg-gradient-to-r from-orange-500/10 to-transparent relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-            <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12">
-                <div class="max-w-2xl">
-                    <h2 class="text-4xl font-bold text-white mb-6">The Pro Result</h2>
-                    <p class="text-xl text-gray-400 mb-8">
-                        I took a legacy concept and engineered a production-ready system that standardizes weekly broadcast coordination with zero manual errors.
-                    </p>
-                    <div class="flex gap-10">
-                        <div><span class="text-3xl font-bold text-white">40%</span><span class="block text-[10px] text-gray-500 uppercase font-bold tracking-widest mt-1">Faster Workflow</span></div>
-                        <div><span class="text-3xl font-bold text-white">100%</span><span class="block text-[10px] text-gray-500 uppercase font-bold tracking-widest mt-1">Data Hardening</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+  <section class="wrap section">
+    <div class="section__head">
+      <div class="section__title"><h2>The panel</h2></div>
+    </div>
 
-    <footer class="py-16 text-center border-t border-white/5">
-        <p class="text-[10px] font-bold text-gray-600 uppercase tracking-[0.2em]">&copy; 2026 Tomas. White Hat Architect.</p>
-    </footer>
+    <div class="prose">
+      <p>
+        Scheduling a station that never goes off air is a coordination problem
+        before it's a software problem. Presenters needed to see the whole week
+        at once, claim a slot without stepping on someone else's, and have that
+        booking end up in the thing that actually plays the music.
+      </p>
+      <p class="prose">
+        So the panel was built around one view: a full seven-day timetable, dense
+        enough to hold a week but spaced so a slot could carry a show title, a
+        presenter and a time without becoming unreadable. Around it sat the rest
+        of running a station. Presenter accounts, recruitment and applications,
+        listener requests, banned IPs, and a bug inbox so staff could report a
+        problem without finding me first.
+      </p>
+    </div>
+
+    <figure class="shot shot--off" data-reveal>
+      <img src="images/staffdashboard.png" width="1810" height="894" loading="lazy" decoding="async" alt="The SimNation station overview: live listener count, shows today, listener requests and staff numbers across the top, a welcome panel, presenter guidelines, a station-wide theme selector, and a sidebar linking to the timetable, presenter accounts, recruitment, applications, banned IPs and a bug inbox.">
+      <figcaption>Station overview. Listeners, shows and requests on landing</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap section">
+    <div class="section__head">
+      <div class="section__title"><h2>The timetable grid</h2></div>
+      <p class="eyebrow">Where most of the work went</p>
+    </div>
+
+    <div class="prose">
+      <p>
+        The grid paginated by week and year, which meant every cell had to know
+        its real calendar date, including the weeks that straddle a year
+        boundary. I wrote the date logic myself rather than pulling in a
+        library, so the pagination and the dates couldn't disagree with each
+        other.
+      </p>
+      <p class="prose">
+        Times mapped to the grid mathematically: a 24-hour time string converted
+        to an exact Y coordinate on a fixed vertical scale, so a show starting at
+        14:20 landed where 14:20 actually is.
+      </p>
+    </div>
+
+    <figure class="shot shot--off" data-reveal>
+      <img src="images/timetable.png" width="1612" height="822" loading="lazy" decoding="async" alt="The radio timetable: a seven-day grid paginated by week and year, with hour rows down the side and a booked show block showing its title, presenter and time range.">
+      <figcaption>The timetable. Paginated by week, every cell knowing its real date</figcaption>
+    </figure>
+  
+  </section>
+
+  <section class="wrap section">
+    <div class="section__head">
+      <div class="section__title"><h2>Handling staff data</h2></div>
+    </div>
+
+    <div class="cards cards--3">
+      <div class="card" data-reveal>
+        <h3>Nothing injected</h3>
+        <p>
+          Show titles and presenter names are user input that ends up rendered on
+          a page and sent to an API. Both paths were sanitised, and requests
+          carried CSRF protection, so a booking form couldn't be turned into a
+          way in.
+        </p>
+      </div>
+      <div class="card" data-reveal>
+        <h3>No identifiers in the page</h3>
+        <p>
+          Staff records were hydrated so internal staff IDs never appeared in the
+          rendered source or the DOM. The browser got what it needed to draw the
+          schedule and nothing behind it.
+        </p>
+      </div>
+      <div class="card" data-reveal>
+        <h3>Access, not trust</h3>
+        <p>
+          The panel was staff-only and treated as such: authenticated access
+          control on the routes, rather than an unlisted URL and an assumption
+          nobody would find it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section__head">
+      <div class="section__title"><h2>Other details</h2></div>
+    </div>
+
+    <div class="cards cards--2">
+      <div class="card" data-reveal>
+        <h3>One layout, many screens</h3>
+        <p>
+          Type was set with <code>clamp()</code> rather than breakpoints, so the
+          same timetable worked on a presenter's laptop and on the wide monitor
+          in the studio. Denser on the big screen instead of just larger.
+        </p>
+      </div>
+      <div class="card" data-reveal>
+        <h3>One directory, two apps</h3>
+        <p>
+          The staff panel and the public site lived in the same project, sharing
+          assets and a single deployment. One push updated both, so there was
+          never a version of the schedule component that only existed on one
+          side.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="contact" data-reveal>
+      <p class="eyebrow"><span class="status">Available for work</span></p>
+      <h2>Projects end. The work still counts.</h2>
+      <p class="prose">
+      SimNation is closed, but scheduling, dashboards and API integrations are
+      still what I do. If you have one that needs building or rescuing, get in
+      touch.
+    </p>
+      <div class="contact__actions">
+        <a class="btn btn--primary" href="mailto:tomas.jorasen@polarixhosting.com">tomas.jorasen@polarixhosting.com</a>
+        <a class="btn btn--ghost" href="index.html">All work</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <span>&copy; 2026 Tomas</span>
+    <a href="index.html">All work</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var items = document.querySelectorAll('[data-reveal]');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < items.length; i++) items[i].classList.add('is-in');
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 </body>
 </html>
