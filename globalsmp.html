@@ -214,23 +214,30 @@
   </div>
 </footer>
 
-<script>
-(function () {
-  var items = document.querySelectorAll('[data-reveal]');
-  if (!items.length) return;
-  if (!('IntersectionObserver' in window) ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    for (var i = 0; i < items.length; i++) items[i].classList.add('is-in');
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
-  items.forEach(function (el) { io.observe(el); });
-})();
-</script>
+<aside class="hud" id="siteHud" hidden>
+  <div class="hud__player" id="hudPlayer" data-hud="player" hidden></div>
+  <div class="hud__inner">
+    <span class="hud__brand"><span class="hud__lamp"></span><span>Site telemetry</span></span>
+    <button class="hud__now" data-hud="now" type="button" aria-expanded="false" aria-controls="hudPlayer" hidden>
+      <svg class="hud__note" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 3v12.5a3.5 3.5 0 1 1-2-3.16V6.6L10 8.4v9.1a3.5 3.5 0 1 1-2-3.16V5.6L21 3z"/></svg>
+      <span class="hud__track">
+        <span class="hud__title" data-hud="now-title"></span>
+        <span class="hud__by" data-hud="now-artist"></span>
+      </span>
+      <svg class="hud__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+    <div class="hud__bar" data-hud="bar" aria-hidden="true"></div>
+    <div class="hud__readouts" aria-hidden="true">
+      <div class="hud__cell hud__cell--primary"><span class="hud__val" data-hud="scroll">0</span><span class="hud__unit">% depth</span></div>
+      <div class="hud__cell"><span class="hud__key">FPS</span><span class="hud__val" data-hud="fps">--</span></div>
+      <div class="hud__cell hud__cell--session"><span class="hud__key">SES</span><span class="hud__val" data-hud="session">0:00</span></div>
+      <div class="hud__cell hud__cell--viewport"><span class="hud__key">VIEW</span><span class="hud__val" data-hud="viewport">--</span></div>
+    </div>
+    <button class="hud__close" type="button" data-hud-close aria-label="Hide the telemetry readout">&times;</button>
+  </div>
+</aside>
+
+<script src="motion.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 
 </body>
 </html>
